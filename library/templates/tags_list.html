@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+<ul>
+    {% for tag in tags %}
+        <li>{{ tag.name }}</li>  <!-- Предполагается, что модель Tag имеет поле 'name' -->
+    {% endfor %}
+</ul>

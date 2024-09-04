@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="post-entry">
+    <a href="{% url 'post_edit' post.pk %}">Редактировать заказ</a>
+    <a href="{% url 'post_delete' post.pk %}">Удалить заказ</a>
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.body }}</p>
+  </div>
+{% endblock content %}
+
+

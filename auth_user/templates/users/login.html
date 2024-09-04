@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <style>
+        .content-section {
+            padding-left: 15px; /* Установите нужный размер отступа */
+        }
+        .content-section > * {
+            padding-left: 0; /* Убираем отступ у непосредственных дочерних элементов */
+        }
+        .border-top, .border-bottom, .border-bottom h1 {
+            padding-left: 0; /* Убираем отступ у элементов с границей сверху и снизу, а также у заголовка */
+        }
+        .content-section .form-group {
+            padding-left: 0; /* Убираем отступ у групп форм */
+        }
+    </style>
+
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <h1 class="border-bottom mb-4">Вход</h1>
+                {{ form }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Войти</button>
+            </div>
+        </form>
+
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Нужен аккаунт? <a class="ms-2" href="{% url 'register' %}">Регистрация</a>
+            </small>
+        </div>
+
+    </div>
+{% endblock content %}

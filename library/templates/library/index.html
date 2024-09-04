@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load button_styles %}
+{% load custom_tags %}
+{% block title %}
+ Домашняя страница
+{% endblock %}
+{%block content  %}
+
+    <h1 style="margin-left: 10px; margin-bottom: 20px;"> Домашняя страница
+    </h1>
+    <div class="content" style="margin-left: 10px;" >
+        <a class="{{ ''|btn_primary }}" href="{% url 'book_list' %}" role="button">Каталог книг</a>
+        <a class="{{ ''|btn_warning }}" href="{% url 'home' %}" role="button">Список заказов</a>
+        <a class="{{ ''|btn_success }}" href="{% url 'providers' %}" role="button">Поставщики</a>
+        <a class="{{ ''|btn_danger }}" href="{% url 'deliveries' %}" role="button">Поставки</a>
+{#        <a class="btn btn-primary" href="{% url 'book_list'  %}" role="button">Каталог книг</a>#}
+{#        <a class="btn btn-secondary" href="{% url 'home'       %}" role="button">Список заказов</a>#}
+{#        <a class="btn btn-primary" href="{% url 'providers'  %}" role="button">Поставщики</a>#}
+{#        <a class="btn btn-primary" href="{% url 'deliveries' %}" role="button">Поставки</a>#}
+
+
+    </div>
+
+    <!-- Добавляем теги или категории в виде несортированного списка -->
+    <div class="tags-list" style="margin-left: 10px; margin-top: 20px;">
+        {% render_tags %}
+    </div>
+{% endblock %}

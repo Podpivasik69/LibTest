@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-section">
+    <div class="media">
+         <image class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+            <div class="media-body">
+                <h2 class ="account-heading">{{ user.username }}</h2>
+                <a class="nav-item nav-link" href="{% url 'admin:index' %}">Admin</a>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </image>
+    </div>
+{#    <! -- Здесь у нас будет форма-->#}
+</div>
+{% endblock %}
+
+
+
+

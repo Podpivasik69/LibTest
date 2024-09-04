@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load button_styles %}
+
+{% block content %}
+    <p></p>
+    <h1>Домашняя страница</h1>
+    
+    <a class="{{ ''|btn_warning }}" href="{% url 'post_new'  %}" role="button">Добавить Заказ</a>
+{% if object_list.count > 0%}
+    
+    {% for post in object_list %}
+        <div class="post-entry">
+            <h2><a href="{% url "post_detail" post.pk %}" target="_blank">{{ post.title }}</a></h2> 
+            <p>{{ post.body }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <h1> Заказов пока нет</h1>
+    <h2><a href = {% url 'post_new' %}> Добавить заказ?</a></h2>
+{% endif %}
+{%endblock content %}

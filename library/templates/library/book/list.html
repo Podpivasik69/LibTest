@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load button_styles %}
+{% load main %}
+{% block title %}
+    Каталог книг
+{% endblock %}
+
+{% block content %}
+    <div xmlns="http://www.w3.org/1999/html">
+        <h1>Список книг. Всего: {% total_book %} книг</h1>
+        <p></p>
+        <a class="{{ ''|btn_primary }}" href="{% url 'home_index' %}">На главную</a>
+
+
+        <div class="mb-4">
+            {% for item in all_books %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h2 class="card-title">{{ item.title }} </h2>
+                    <p class="card-title">{{ item.price }}</p>
+                    <p class="card-title">{{ item.publication_date|date:"Y-m-d" }}</p>
+                    <a href="{% url 'book_description' item.pk %}" class="{{ ''|btn_primary }}" >Подробнее</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

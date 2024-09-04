@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load button_styles %}
+{% block content %}
+    <a class="{{ ''|btn_danger }}" href="{% url 'home_index'  %}" role="button">Вернутся на главную</a>
+    <h1>Поставки:</h1>
+     <p></p>
+  {% for deliveries in object_list %}
+    <div class="post-entry">
+        <h2> <a href="{% url 'deliveries_detail' deliveries %}">{{ deliveries.delivery_number }}</a></h2>
+        <p>{{ deliveries.delivery_data }}</p>
+    </div>
+  {% endfor %}
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="post-entry">
+    <a href="{% url 'provider_edit' provider.pk %}">Редактировать поставщика</a>
+    <a href="{% url 'provider_delete' provider.pk %}">Удалить поставщика</a>
+    <a href="{% url 'providers' %}" >Вернуться назад к поставщикам</a>
+      <h1>{{ provider.name }}</h1>
+      <h4>{{ provider.agent_full_name }}</h4>
+      <h4>{{ provider.agent_phone }}</h4>
+  </div>
+{% endblock content %}
+

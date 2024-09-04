@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load button_styles %}
+ {% block content %}
+     <a class="{{ ''|btn_success }}" href="{% url 'home_index'  %}" role="button">Вернутся на главную</a>
+     <h1>Поставщики:</h1>
+     <p></p>
+  {% for provider in object_list %}
+    <div class="post-entry">
+        <h2> <a href="{% url 'provider_detail' provider.pk %}">{{ provider.name }}</a></h2>
+        <p>{{ provider.agent_full_name }}</p>
+    </div>
+  {% endfor %}
+{% endblock content %}
